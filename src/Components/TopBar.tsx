@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import UserIcon from './UserIcon'
+import UserIconDropDown from './UserIconDropDown.tsx'
 import TopBarButton from './TopBarButton'
 import TextDropDown from './TextDropDown'
 
@@ -23,7 +23,11 @@ const TopBar: FC<TopBarProps> = ({ userImageUrl }) => {
                 </div>
             </div>
             <div className='flex items-center-right'>
-                <UserIcon className='text-white w-12 h-12 rounded-full' userImageUrl={userImageUrl}/>
+                <UserIconDropDown userIconUrl={userImageUrl} className='text-right'>
+                    <a href='/account' className='hover:bg-gray-300'>Account</a>
+                    <a href='/settings' className='hover:bg-gray-300'>Settings</a>
+                    <a href='/logout' className='hover:bg-gray-300'>Log out</a>
+                </UserIconDropDown>
             </div>
         </div>
     )
