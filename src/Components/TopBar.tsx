@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import type { FC } from 'react'
 import UserIconDropDown from './UserIconDropDown.tsx'
 import TopBarButton from './TopBarButton'
 import TextDropDown from './TextDropDown'

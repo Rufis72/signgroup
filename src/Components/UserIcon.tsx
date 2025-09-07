@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import type { FC } from 'react'
 
 interface UserIconProps {
     userImageUrl: string,
@@ -6,7 +6,6 @@ interface UserIconProps {
 }
 
 const UserIcon: FC<UserIconProps>  = ({ className, userImageUrl }) => {
-    const [clicked, setClicked] = useState(false);
     return (
         <img src={userImageUrl} className={`text-white w-12 h-12 rounded-full ${className}`}>
         </img>
