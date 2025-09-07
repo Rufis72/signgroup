@@ -12,7 +12,7 @@ const TextDropDown: FC<TextDropDownProps> = ({ topText, children, className }) =
 
     return (
         <div className={`relative ${className}`}>
-            <button onClick={() => useOpen(!open)} className='p-2 bg-lime-600 rounded-md hover:bg-lime-800'>
+            <button onClick={() => useOpen(!open)} className='p-2 bg-lime-600 rounded-sm hover:bg-lime-800'>
                 {topText}
             </button>
             <div>
