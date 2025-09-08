@@ -1,6 +1,8 @@
 import type { FC } from 'react'
 
 import TopBar from './Components/TopBar';
+import not_a_cult_img from './assets/notacult.gif'
+import doggo_img from './assets/doggo.jpeg'
 
 interface HomePageProps {
 
@@ -12,7 +14,7 @@ const HomePage: FC<HomePageProps> = ({}) => {
       <TopBar userImageUrl='https://i.imgur.com/gzlhqFt.jpeg'/>
       <div className='overflow-y-auto'>
         <div className='flex p-10 gap-10'>
-          <img src='https://i.imgur.com/CbCPIxK.jpeg' className='max-w-2/5 rounded-lg'/>
+          <img src={doggo_img} className='max-w-2/5 rounded-lg'/>
           <div className='w-4/5 text-center'>
             <h1 className='text-9xl'>
               Who are we?
@@ -33,13 +35,13 @@ const HomePage: FC<HomePageProps> = ({}) => {
         <div className='flex p-10 gap-10'>
           <div className='w-4/5 text-center'>
             <h1 className='text-9xl'>
-              Why should you join
+              Why you should join.
             </h1>
             <div className='p-1 font-mono'>
-              De lorem ipsum!!!
+              Because the sign is sigma, and we're cool. Duh!
             </div>
           </div>
-          <img src='https://postimg.cc/7fn3PX9Q' className='max-w-2/5 rounded-lg'/>
+          <img src={not_a_cult_img} className='max-w-2/5 rounded-lg'/>
         </div>  
       </div>
       
