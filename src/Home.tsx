@@ -39,7 +39,7 @@ const HomePage: FC<HomePageProps> = ({}) => {
               De lorem ipsum!!!
             </div>
           </div>
-          <img src='https://tenor.com/view/cult-gif-23104410' className='max-w-2/5 rounded-lg'/>
+          <img src='https://postimg.cc/7fn3PX9Q' className='max-w-2/5 rounded-lg'/>
         </div>  
       </div>
       
