@@ -9,7 +9,7 @@ interface PageNotFoundPageProps {
 const PageNotFoundPage: FC<PageNotFoundPageProps> = ({}) => {
   return (
     <div>
-      <TopBar userImageUrl='https://i.imgur.com/gzlhqFt.jpeg'/>
+      <TopBar/>
       <div className='text-center p-50'>
         <h1 className='text-8xl'>Page not found.💀</h1>
         <h3 className='p-3'>

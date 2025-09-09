@@ -2,13 +2,20 @@ import type { FC } from 'react'
 import UserIconDropDown from './UserIconDropDown.tsx'
 import TopBarButton from './TopBarButton'
 import TextDropDown from './TextDropDown'
+import logged_out_user_icon from '../assets/loggedoutusericon.jpg'
 
 
 interface TopBarProps {
-    userImageUrl: string,
+    userImageUrl?: string,
 }
 
 const TopBar: FC<TopBarProps> = ({ userImageUrl }) => {
+    // Replacing the userImageUrl with the default icon if the user isn't signed in
+    let logged_in: boolean = true
+    if (userImageUrl === undefined) {
+        userImageUrl = logged_out_user_icon
+        logged_in = false
+    }
     return (
         <div>
             <div className='flex fixed w-full items-center justify-between bg-gray-900 p-4 h-17'>
@@ -34,7 +41,11 @@ const TopBar: FC<TopBarProps> = ({ userImageUrl }) => {
                     <UserIconDropDown userIconUrl={userImageUrl} className='text-right'>
                         <a href='/account' className='hover:bg-gray-300'>Account</a>
                         <a href='/settings' className='hover:bg-gray-300'>Settings</a>
-                        <a href='/logout' className='hover:bg-gray-300'>Log out</a>
+                        {logged_in ? (
+                                <a href='/logout' className='hover:bg-gray-300'>Log out</a>
+                            ) : (
+                                <a href='/login' className='hover:bg-gray-300'>Log in</a>
+                            )}
                     </UserIconDropDown>
                 </div>
             </div>

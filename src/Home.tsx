@@ -11,7 +11,7 @@ interface HomePageProps {
 const HomePage: FC<HomePageProps> = ({}) => {
   return (
     <div>
-      <TopBar userImageUrl='https://i.imgur.com/gzlhqFt.jpeg'/>
+      <TopBar/>
       <div className='overflow-y-auto'>
         <div className='flex p-10 gap-10'>
           <img src={doggo_img} className='max-w-2/5 rounded-lg'/>
