@@ -14,7 +14,7 @@ npm install
 
 ## Development
 
-If you want to develop this on your local machine, after installing, run the following.
+If you want to develop this on your local machine, first create a .env file in the root of the project based off .env.example, then run the following:
 
 ```bash
 npm run dev
