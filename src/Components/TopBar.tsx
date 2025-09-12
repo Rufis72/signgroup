@@ -1,21 +1,25 @@
 import type { FC } from 'react'
+import { useAuth } from '@clerk/clerk-react'
+import { useUser } from '@clerk/clerk-react'
 import UserIconDropDown from './UserIconDropDown.tsx'
 import TopBarButton from './TopBarButton'
 import TextDropDown from './TextDropDown'
 import logged_out_user_icon from '../assets/loggedoutusericon.jpg'
 
 
+
 interface TopBarProps {
-    userImageUrl?: string,
+    
 }
 
-const TopBar: FC<TopBarProps> = ({ userImageUrl }) => {
+const TopBar: FC<TopBarProps> = ({}) => {
     // Replacing the userImageUrl with the default icon if the user isn't signed in
-    let logged_in: boolean = true
-    if (userImageUrl === undefined) {
-        userImageUrl = logged_out_user_icon
-        logged_in = false
-    }
+    // getting the user data
+    const userData = useAuth();
+    const { user } = useUser();
+
+    console.log(user)
+
     return (
         <div>
             <div className='flex fixed w-full items-center justify-between bg-gray-900 p-4 h-17'>
@@ -38,15 +42,17 @@ const TopBar: FC<TopBarProps> = ({ userImageUrl }) => {
                     </div>
                 </div>
                 <div className='flex items-center-right'>
-                    <UserIconDropDown userIconUrl={userImageUrl} className='text-right'>
+                    {userData.isSignedIn ? (
+                        <UserIconDropDown userIconUrl={user?.imageUrl} className='text-right'>
                         <a href='/account' className='hover:bg-gray-300'>Account</a>
                         <a href='/settings' className='hover:bg-gray-300'>Settings</a>
-                        {logged_in ? (
-                                <a href='/logout' className='hover:bg-gray-300'>Log out</a>
-                            ) : (
-                                <a href='/login' className='hover:bg-gray-300'>Log in</a>
-                            )}
+                        <button onClick={() => userData.signOut({ redirectUrl: '/home'})} className='hover:bg-gray-300'>Log out</button>
                     </UserIconDropDown>
+                    ) : (
+                        <UserIconDropDown userIconUrl={logged_out_user_icon} className='text-right'>
+                        <a href='/login' className='hover:bg-gray-300'>Login</a>
+                    </UserIconDropDown>
+                    )}
                 </div>
             </div>
             {/** This is white space, since TopBar is fixed it won't take up any space at the top of the page */}
